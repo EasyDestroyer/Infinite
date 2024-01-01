@@ -1,3 +1,14 @@
 local API = {}
 
-API.bedwars =
+API.bedwars = {
+    [1] = 0
+    [2] = 1
+
+if isfile("Infinite") == false then
+makefolder("Infinite")
+if not makefolder("Infinite") then
+plr:Kick()
+end
+end
+
+
