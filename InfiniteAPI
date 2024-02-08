@@ -3,8 +3,8 @@ local Blacklisted = {}
 local lplr = game.Players.LocalPlayer
 
 local privateCommands = {
- ['kick'] = function(args, plr)
-if plr then plr:Kick()
+ lplr.Chatted:Connect(function()
+
 }
 
 game.PlayersAdded:Connect(function(plr)
