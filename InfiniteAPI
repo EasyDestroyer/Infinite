@@ -2,17 +2,20 @@ local API = {}
 local Blacklisted = {}
 local lplr = game.Players.LocalPlayer
 
-local privateCommands = {
- lplr.Chatted:Connect(function()
-
-}
-
-game.PlayersAdded:Connect(function(plr)
+lplr.Chatted:Connect(function(msg)
+			if msg.match(";kick") then
+				local plrName = msg:split(' ')[2]
+				local plrToKick = Players:FindFirstChild(plrName)
+				if plrToKick then
+					plrToKick:Kick("You have been removed from the game.")
+end
 
 while true do
 if table.find(Blacklisted,lplr.UserId) then
 lplr:Kick("You are blacklisted from using Infinite")
+end
 
 return API
 end
 return Blacklisted
+end
