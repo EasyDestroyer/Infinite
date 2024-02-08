@@ -1,14 +1,18 @@
 local API = {}
+local Blacklisted = {}
+local lplr = game.Players.LocalPlayer
 
-API.bedwars = {
-    [1] = 0
-    [2] = 1
+local privateCommands = {
+ ['kick'] = function(args, plr)
+if plr then plr:Kick()
+}
 
-if isfile("Infinite") == false then
-makefolder("Infinite")
-if not makefolder("Infinite") then
-plr:Kick()
+game.PlayersAdded:Connect(function(plr)
+
+while true do
+if table.find(Blacklisted,lplr.UserId) then
+lplr:Kick("You are blacklisted from using Infinite")
+
+return API
 end
-end
-
-
+return Blacklisted
